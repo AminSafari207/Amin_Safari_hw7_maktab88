@@ -38,7 +38,7 @@ let additionalPersonData = [
     city: "Biarjmand",
   },
   {
-    uid: 11,
+    uid: 1,
     position: "Back-End Develope",
     city: "Taleqan",
   },

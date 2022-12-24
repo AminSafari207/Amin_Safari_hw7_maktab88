@@ -57,3 +57,14 @@ const read = (entryArray) => {
   });
 };
 
+const create = (entryArray, entryObject) => {
+  if (_.findIndex(entryArray, ["uid", entryObject["uid"]]) !== -1) {
+    console.log(
+      `Create faild!\nThere is already an object with same uid ( ${entryObject["uid"]} )`
+    );
+  } else {
+    entryArray.push(entryObject);
+    entryArray = _.sortBy(entryArray, "uid");
+    console.log("Create successful!\n", entryArray);
+  }
+};

@@ -60,7 +60,7 @@ const read = (entryArray) => {
 const create = (entryArray, entryObject) => {
   if (_.findIndex(entryArray, ["uid", entryObject["uid"]]) !== -1) {
     console.log(
-      `Create faild!\nThere is already an object with same uid ( ${entryObject["uid"]} )`
+      `Create failed!\nThere is already an object with same uid ( ${entryObject["uid"]} )`
     );
   } else {
     entryArray.push(entryObject);
@@ -68,3 +68,28 @@ const create = (entryArray, entryObject) => {
     console.log("Create successful!\n", entryArray);
   }
 };
+
+const update = (entryArray, entryObject) => {
+  const index = _.findIndex(entryArray, ["uid", entryObject["uid"]]);
+  if (index === -1) {
+    console.log(`Update failed!\nNo match for uid : ( ${entryObject["uid"]} )`);
+  } else {
+    updateArrayData(index, entryArray, entryObject);
+    console.log("Update successful!\n", entryArray);
+  }
+};
+
+const remove = (entryArray, entryUID) => {
+  const index = _.findIndex(entryArray, ["uid", entryUID]);
+  if (_.findIndex(entryArray, ["uid", index]) === -1) {
+    console.log(`Remove failed!\nNo match for uid : ( ${entryUID} ) )`);
+  } else {
+    entryArray.splice(index, 1);
+    console.log("Remove successful!\n", entryArray);
+  }
+};
+
+// read(personData);
+// create(personData, { uid: 9, firstName: "Kiumars", job: "Tailor" });
+// update(personData, { uid: 2, firstName: "Kiumars", job: "Tailor" });
+// remove(personData, 4)

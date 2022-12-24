@@ -1,3 +1,5 @@
+// Exercise #1
+
 const intendedItems = ["position", "city"];
 
 const updateArrayData = (index, array, object) => {
@@ -37,7 +39,21 @@ const transferAdditionalData = (entryArray) => {
     );
   }
 
-  console.log(personData);
+  console.log("Result of exercise #1 : \n", personData);
 };
 
-transferAdditionalData(intendedItems);
+// transferAdditionalData(intendedItems);
+
+// Exercise #2
+
+const read = (entryArray) => {
+  console.log("******************");
+  entryArray.forEach((itemElement) => {
+    const elementObject = Object.keys(itemElement);
+    elementObject.forEach((n) => {
+      console.log(`${n}: ${itemElement[n]}`);
+    });
+    console.log("******************");
+  });
+};
+
